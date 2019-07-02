@@ -1,0 +1,19 @@
+{% extends "lecturer/base.html" %}
+
+
+{% block content %}
+<table cellspacing="2" border="1" cellpadding="5" width="600">
+        <tr><th>Лекция</th><th>Студенты</th><th>Число слушателей</th></tr> <!--ряд с ячейками заголовков-->
+{% for lecture in lectures %}
+
+    <tr><td>{{ lecture.name }}</td> <td>  {% for stud in lecture.student.all %}
+                                            {{ stud }}
+                                         {% endfor %}
+                                    </td>
+        <td>{{ lecture.student.count}} / {{lecture.students_count }}</td>
+    </tr> <!--ряд с ячейками тела таблицы-->
+
+{% endfor %}
+
+</table>
+{% endblock %}

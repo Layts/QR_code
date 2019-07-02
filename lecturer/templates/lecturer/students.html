@@ -1,0 +1,22 @@
+{% extends "lecturer/base.html" %}
+
+
+{% block content %}
+<table cellspacing="2" border="1" cellpadding="5" width="600">
+        <tr><th>Студент</th><th>Лекции</th></tr> <!--ряд с ячейками заголовков-->
+{% for student in students %}
+
+    <tr><td>
+        {{ student.name }}
+        </td>
+        <td>
+            {% for lect in student.lecture_set.all %}
+            {{ lect }}
+            {% endfor %}
+        </td>
+    </tr> <!--ряд с ячейками тела таблицы-->
+
+{% endfor %}
+
+</table>
+{% endblock %}

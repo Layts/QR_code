@@ -1,0 +1,19 @@
+{% extends "lecturer/base.html" %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block content %}
+    <form method="post" action="{% url 'registration_url' %}">
+        {% csrf_token %}
+
+        {% if form.error %}
+        <p>Error</p>
+        {% endif %}
+
+        {{ form }}
+
+        <input type="submit" value="Register" class="btn btn-primary">
+    </form>
+{% endblock %}
